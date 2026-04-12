@@ -53,7 +53,7 @@
         <div class="hero-content">
             <h1 class="hero-title">Mother Teresa School</h1>
             <p class="hero-subtitle">"Let Your Light Shine"</p>
-            <p class="hero-desc">Established in 2018 | A Christian minority school Run by Roman Catholic Diocese of Krishnagar, administered by the Roman Catholic Diocese of Krishnagar</p>
+            <p class="hero-desc">Established in 2018 | A Christian minority school administered by the Roman Catholic Diocese of Krishnagar</p>
             <a href="#about" class="btn btn-primary">Discover More</a>
             <div class="hero-shortcuts">
                 <a href="principal.html" class="shortcut-item">
@@ -252,10 +252,22 @@
                 </div>
                 <div class="contact-form">
                     <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email address" required>
-                        <input type="text" placeholder="Subject">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <div class="form-group">
+                            <label for="user-name">Your Name</label>
+                            <input type="text" id="user-name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user-email">Email Address</label>
+                            <input type="email" id="user-email" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="msg-subject">Subject</label>
+                            <input type="text" id="msg-subject" placeholder="What is this regarding?">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-msg">Your Message</label>
+                            <textarea id="user-msg" placeholder="Write your message here..." rows="5" required></textarea>
+                        </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
@@ -289,7 +301,7 @@
             <div class="footer-links">
                 <h4 style="margin-bottom:15px; font-size:1.2rem;">Administration</h4>
                 <p style="color: rgba(255,255,255,0.7); font-size:0.9rem;">
-                    A Christian minority school Run by Roman Catholic Diocese of Krishnagar administered by the<br>Roman Catholic Diocese of Krishnagar<br><br>
+                    A Christian minority school administered by the<br>Roman Catholic Diocese of Krishnagar<br><br>
                     Reg No. S/17302
                 </p>
             </div>
@@ -304,6 +316,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-nav">
+            <button id="prev-btn" class="nav-btn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="next-btn" class="nav-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
 
     <script src="script.js?v=3"></script>
 </body>

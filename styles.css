@@ -449,6 +449,19 @@ body {
     align-self: flex-start;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
 /* Footer */
 footer {
     background-color: var(--primary-dark);
