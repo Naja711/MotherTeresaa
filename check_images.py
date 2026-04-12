@@ -3,9 +3,6 @@ import re
 
 def check_images():
     html_files = [f for f in os.listdir('.') if f.endswith('.html')]
-    image_files = [f for f in os.listdir('.') if f.lower().endswith(('.jpeg', '.jpg', '.png', '.gif', '.webp'))]
-    
-    print(f"Found {len(html_files)} HTML files and {len(image_files)} image files.\n")
     
     img_tag_pattern = re.compile(r'<img[^>]+src=["\']([^"\']+)["\']', re.IGNORECASE)
     
@@ -20,17 +17,13 @@ def check_images():
                     continue
                 
                 # Check if file exists (case-sensitive)
-                # On Windows os.path.exists is case-insensitive, so we use listdir
-                if src in os.listdir('.'):
+                # Normalize path separators for Windows/Linux
+                normalized_path = src.replace('/', os.sep)
+                
+                if os.path.exists(normalized_path):
                     print(f"  [OK] {src}")
                 else:
-                    # Check if it exists with a different case
-                    exists_ci = any(f.lower() == src.lower() for f in os.listdir('.'))
-                    if exists_ci:
-                        actual = [f for f in os.listdir('.') if f.lower() == src.lower()][0]
-                        print(f"  [WRONG CASE] {src} (Found as: {actual})")
-                    else:
-                        print(f"  [MISSING] {src}")
+                    print(f"  [MISSING] {src}")
 
 if __name__ == "__main__":
     check_images()
